@@ -1,0 +1,37 @@
+{
+  "name": "create-react-app-example",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "axios": "^0.20.0",
+    "bootstrap": "^4.5.2",
+    "mdbreact": "^4.27.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-paginate": "^6.5.0",
+    "react-read-more-less": "^0.1.6",
+    "react-scripts": "3.2.0"
+  },
+  "devDependencies": {
+    "react-cosmos": "^5.0.0-beta.15"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
