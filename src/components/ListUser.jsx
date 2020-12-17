@@ -85,7 +85,7 @@ class ListUser extends Component {
     //sorting Logic
     let tempData = this.state.listOfUsers;
     tempData.sort((a, b) =>
-      a.name !== b.name ? (a.name > b.name ? -1 : 1) : 0
+      a.name !== b.name ? (a.name > b.name ? 1 : -1) : 0
     );
     this.setState({
       listOfUsers: tempData,
