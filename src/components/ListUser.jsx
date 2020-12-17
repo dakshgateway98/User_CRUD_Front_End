@@ -82,10 +82,14 @@ class ListUser extends Component {
         console.error(err);
       });
 
-      //sorting Logic
-    this.state.listOfUsers.sort((a, b) =>
-      a.name !== b.name ? (a.name < b.name ? -1 : 1) : 0
+    //sorting Logic
+    let tempData = this.state.listOfUsers;
+    tempData.sort((a, b) =>
+      a.name !== b.name ? (a.name > b.name ? -1 : 1) : 0
     );
+    this.setState({
+      listOfUsers: tempData,
+    });
   };
   handleDelete = (index) => {
     console.log("handleLocalDelete", index);
