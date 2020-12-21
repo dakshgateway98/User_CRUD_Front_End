@@ -1,21 +1,15 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
+import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import Divider from "@material-ui/core/Divider";
-import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
-import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
-import {
-  DeleteOutlined,
-  EditAttributesRounded,
-  EditRounded,
-} from "@material-ui/icons";
+import ListItemText from "@material-ui/core/ListItemText";
+import { makeStyles } from "@material-ui/core/styles";
+import { DeleteOutlined, EditRounded } from "@material-ui/icons";
+import axios from "axios";
+import React from "react";
 import { Link } from "react-router-dom";
 
-import axios from "axios";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -34,18 +28,18 @@ export default function UserCardList({
   history,
 }) {
   const classes = useStyles();
-  console.log(ListOfImage, "ListOfImage");
+  // console.log(ListOfImage, "ListOfImage");
   const handleDelete = (mid, index) => {
     const obj = {
       id: mid,
     };
     handleLocalDelete(index);
-    console.log("handle Delete");
+    // console.log("handle Delete");
     axios
       .post("http://localhost:4444/user/delete", obj)
       .then((res) => {
         if (res.status === 200) {
-          console.log("Sucess");
+          // console.log("Sucess");
         } else {
           alert("something went wrong");
         }

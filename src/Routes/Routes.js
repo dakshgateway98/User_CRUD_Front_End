@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import {
   BrowserRouter as Router,
+  Link,
   Redirect,
   Route,
   Switch,
-  Link,
 } from "react-router-dom";
 import AddUser from "../components/AddUser";
 import EditUser from "../components/EditUser";
 import ListUser from "../components/ListUser";
-import App from "./../App";
 class Routes extends Component {
   state = {};
   render() {
@@ -20,12 +19,12 @@ class Routes extends Component {
             <div class="row">
               <div class="col-s-4">
                 <Link to="/">
-                <h1 class="push-left">User Management </h1>
+                  <h1 class="push-left">User Management </h1>
                 </Link>
               </div>
               <div class="col-s-4">
-              <Link to="/add">
-                <button className="push-right mt-4">Add User</button>
+                <Link to="/add">
+                  <button className="push-right mt-4">Add User</button>
                 </Link>
               </div>
             </div>

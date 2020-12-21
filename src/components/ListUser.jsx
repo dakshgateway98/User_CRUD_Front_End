@@ -1,22 +1,14 @@
-import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-  Link,
-} from "react-router-dom";
+import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
-import ReadMoreAndLess from "react-read-more-less";
+import React, { Component } from "react";
 import ReactPaginate from "react-paginate";
 import UserCardList from "./UserCardList";
-import { CircularProgress } from "@material-ui/core";
 class ListUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
       listOfUsers: [],
-      bearErr: "",
+      userErr: "",
       Images: [
         "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         "https://i.pinimg.com/originals/e5/6b/79/e56b799b365e63c41041feb38fb7e965.jpg",
@@ -24,7 +16,6 @@ class ListUser extends Component {
         "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1198110979.jpg",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYDYNzU3h-_FCu56WuigrIstgabN-SjkXR-g&usqp=CAU",
       ],
-
       loading: true,
       error: "",
       offset: 0,
@@ -37,7 +28,6 @@ class ListUser extends Component {
   handlePageClick = (e) => {
     const selectedPage = e.selected;
     const offset = selectedPage * this.state.perPage;
-
     this.setState(
       {
         currentPage: selectedPage,
@@ -77,7 +67,7 @@ class ListUser extends Component {
 
       .catch((err) => {
         this.setState({
-          bearErr: err,
+          userErr: err,
         });
         console.error(err);
       });
@@ -92,7 +82,7 @@ class ListUser extends Component {
     });
   };
   handleDelete = (index) => {
-    console.log("handleLocalDelete", index);
+    //  console.log("handleLocalDelete", index);
     if (index > -1) {
       let listUser = this.state.listOfUsers;
       listUser.splice(index, 1);
@@ -106,18 +96,10 @@ class ListUser extends Component {
   }
 
   render() {
-    const {
-      listOfUsers,
-      loading,
-      error,
-      imageLoading,
-      Images,
-      search,
-      bearErr,
-    } = this.state;
+    const { listOfUsers, loading, error, Images, search, userErr } = this.state;
     if (loading) {
       return <CircularProgress style={{ textAlign: "center" }} />;
-    } else if (error !== "" || bearErr !== "") {
+    } else if (error !== "" || userErr !== "") {
       return <div>{error}</div>;
     } else {
       return (
